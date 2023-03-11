@@ -397,6 +397,99 @@ namespace SDA
             }
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine(yearsCount + " years needed to reach target value");
+        }      
+        public void Example0011()
+        {
+            decimal balance = 1000;
+            decimal overdraft = 200;
+            decimal originalOverdraft = 200;
+
+            Console.WriteLine($"Balance: {balance}, Overdraft: {overdraft}");
+            Console.WriteLine($"w: for withdrawal, d: deposit, x: exit");
+            string inputOption = Console.ReadLine();
+            while (inputOption != "x")
+            {
+                switch (inputOption)
+                {
+                    case ("w"):
+                        Withdraw(ref balance, ref overdraft, originalOverdraft);
+                        break;
+                    case ("d"):
+                        Deposit(ref balance, ref overdraft, originalOverdraft);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+                Console.WriteLine($"w: for withdrawal, d: deposit, x: exit");
+                inputOption = Console.ReadLine();
+            }
+            Console.WriteLine("Bye!");
+
+            void Withdraw(ref decimal balance, ref decimal overdraft, decimal originalOverdraft)
+            {
+                Console.WriteLine("Enter withdrawal amount: ");
+                string input = Console.ReadLine();
+                decimal withdrawalAmount = Convert.ToDecimal(input);
+
+                if (withdrawalAmount > 0)
+                {
+                    if (balance + overdraft >= withdrawalAmount)
+                    {
+                        decimal diff = balance - withdrawalAmount;
+                        if (diff < 0)
+                        {
+                            balance = 0;
+                            overdraft = overdraft + diff;
+                        }
+                        else
+                        {
+                            balance = balance - withdrawalAmount;
+                        }
+                        Console.WriteLine($"New balance: {balance}, New Overdraft: {overdraft}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough funds");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid amount");
+                }
+            }
+            void Deposit(ref decimal balance, ref decimal overdraft, decimal originalOverdraft)
+            {
+                Console.WriteLine("Enter deposit amount: ");
+                string inputDeposit = Console.ReadLine();
+                decimal depositAmount = Convert.ToDecimal(inputDeposit);
+                if (depositAmount > 0)
+                {
+                    if (overdraft < originalOverdraft)
+                    {
+                        decimal diff = originalOverdraft - overdraft;
+                        decimal diffDeposit = depositAmount - diff;
+                        if (diffDeposit > 0)
+                        {
+                            balance = balance + diffDeposit;
+                            overdraft = originalOverdraft;
+                        }
+                        else
+                        {
+                            overdraft = overdraft + depositAmount;
+                        }
+                    }
+                    else
+                    {
+                        balance = balance + depositAmount;
+                    }
+                    Console.WriteLine($"New balance: {balance}, New Overdraft: {overdraft}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid amount");
+                }
+            }
         }
         public void Example002()
         {
