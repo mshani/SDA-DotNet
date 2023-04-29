@@ -29,6 +29,9 @@ while (option.ToLower() != "x")
             VoteParty();
             Console.Clear();
             break;
+        case "pc":
+            PrintCandidate();
+            break;
         case "p":
             election2023.PrintResultParties();
             break;
@@ -47,6 +50,7 @@ void PrintMenu()
     Console.WriteLine("Input \"C\" to assign a candidate to a party"); 
     Console.WriteLine("Input \"D\" to vote for a candidate");
     Console.WriteLine("Input \"E\" to vote for a party");
+    Console.WriteLine("Input \"PC\" to print candidate results");
     Console.WriteLine("Input \"P\" to print results");
     Console.WriteLine("Input \"X\" to exit");
 }
@@ -119,4 +123,11 @@ void VoteParty()
     Console.WriteLine("Enter party id");
     var partyId = Convert.ToInt32(Console.ReadLine());
     election2023.VoteParty(partyId);
+}
+
+void PrintCandidate()
+{
+    Console.WriteLine("Enter candidate id");
+    var candidateId = Convert.ToInt32(Console.ReadLine());
+    election2023.PrintResultCandidate(candidateId);
 }

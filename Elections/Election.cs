@@ -31,6 +31,18 @@ namespace Elections
                 }
             }
         }
+
+        public void PrintResultCandidate(int id)
+        {
+
+            foreach (var c in ElectionCandidates)
+            {
+                if(c.Id == id) { 
+                    Console.Write($"{c.Id}: {c.Fullname} votes:{c.Votes}");
+                }
+                Console.WriteLine();
+            }
+        }
         public void PrintResultCandidates() {
 
             foreach (var c in ElectionCandidates)
