@@ -85,6 +85,24 @@ namespace SDA
             Console.WriteLine(sum);
             Console.WriteLine(average);
         }
+        public void Ex05()
+        {
+            int input = Convert.ToInt32(Console.ReadLine());
+            int sum = CalculateSum(input);
+            Console.WriteLine(sum);
+
+            int CalculateSum(int x)
+            {
+                int sum = 0;
+                while (x > 0)
+                {
+                    int remainder = x % 10;
+                    x = x / 10;
+                    sum += remainder;
+                }
+                return sum;
+            }
+        }
         public void e05()
         {
             int[] numbers = { 6, 5, 9, 2, -1, 8 };
@@ -1217,6 +1235,89 @@ namespace SDA
             }
 
             Console.WriteLine($"Index: {index}");
+        }
+        public void E002()
+        {
+            //Pagesa bëhet brënda 5 diteve kur merr formë të prerë. Me kalimin e afatit paguhet 2%.
+            //Për pagesat brenda 5 ditëve bëhet 20% zbritje në vlerën e kundravajtjes.
+            //Maksimuni i vleres se kamates eshte deri ne 60% te vleres fillestare te gjobes
+            Console.WriteLine("Enter fine date");
+            DateTime fineDate = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Enter amount value");
+            decimal amount = Convert.ToDecimal(Console.ReadLine());
+            DateTime today = DateTime.Now;
+            if (today >= fineDate)
+            {
+                if (amount > 0)
+                {
+                    decimal finalAmount = CalcAmount(amount, fineDate);
+                    Console.WriteLine($"To be paid: {finalAmount}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid amount");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid date");
+            }
+
+            decimal CalcAmount(decimal amount, DateTime fineDate)
+            {
+                int days = (today.Date - fineDate.Date).Days;
+                decimal totalAmount = 0;
+                if (days <= 5)
+                {
+                    totalAmount = amount - (amount * 0.2M);
+                    return totalAmount;
+                }
+                else
+                {
+                    decimal maxValue = amount + (amount * 0.6M);
+                    totalAmount = amount;
+                    for (int i = 6; i <= days; i++)
+                    {
+                        totalAmount = totalAmount + (amount * 0.02M);
+                    }
+                    if (totalAmount > maxValue)
+                    {
+                        totalAmount = maxValue;
+                        return totalAmount;
+                    }
+                    else
+                    {
+                        return totalAmount;
+                    }
+                }
+            }
+        }
+        public void Task12()
+        {
+            Console.WriteLine("Insert a, b, c");
+            int a = Convert.ToInt32(Console.ReadLine());
+            int b = Convert.ToInt32(Console.ReadLine());
+            int c = Convert.ToInt32(Console.ReadLine());
+            Dallori(a, b, c);
+            void Dallori(int a, int b, int c)
+            {
+                double d = b * b - 4 * a * c;
+                if (d > 0)
+                {
+                    double x1 = (-b + Math.Sqrt(d)) / 2 * a;
+                    double x2 = (-b - Math.Sqrt(d)) / 2 * a;
+                    Console.WriteLine($"Rrenjet jane {x1}, {x2}");
+                }
+                else if (d == 0)
+                {
+                    double x1 = -b / 2 * a;
+                    Console.WriteLine($"Rrenja eshte {x1}");
+                }
+                else
+                {
+                    Console.WriteLine("Rrenjet nuk ekzistojne");
+                }
+            }
         }
     }     
 }
