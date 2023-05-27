@@ -9,7 +9,7 @@ Car car = new Car()
     HasWheels = true,
     SpeedLimit = 230,
     PassengerCapacity = 1,
-    EngineType = "Diesel",
+    EngineType = EngineTypeEnum.Diesel,
     LastCheckedDate = new DateTime(2022, 3, 1)
 };
 
@@ -18,7 +18,7 @@ Bus bus = new Bus()
     PlateNumber = "123KJL",
     IsPublic = true,
     HasWheels = true,
-    EngineType = "Electric",
+    EngineType = EngineTypeEnum.Eleclric,
     Itenerar = "Unaza",
     PassengerCapacity = 25,
     SpeedLimit = 80,

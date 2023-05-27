@@ -10,6 +10,6 @@ namespace TrasportExample
     {
         public int SpeedLimit { get; set; }
         public int PassengerCapacity { get; set; }
-        public string EngineType { get; set; }
+        public EngineTypeEnum EngineType { get; set; }
     }
 }
