@@ -87,6 +87,100 @@ namespace Adv10
                 .FirstOrDefault();
             return result;
         }
-
+        public List<Car> FindCarsWithAtLeastThreeManufactures()
+        {
+            var result = new List<Car>();
+            //foreach(var car in Cars)
+            //{
+            //    var manufactures = car.Manufacturers.Count();
+            //    if(manufactures >= 3) {               
+            //        result.Add(car);
+            //    }
+            //}
+            result = Cars
+                .Where(x => x.Manufacturers.Count() >=3)
+                .ToList();
+            return result;
+        }
+        public List<Car> OrderListByModel(bool asending)
+        {
+            var result = new List<Car>();
+            if (asending)
+            {
+                result = Cars.OrderBy(x => x.Model).ToList();
+            }
+            else
+            {
+                result = Cars.OrderByDescending(x => x.Model).ToList();
+            }
+            return result;
+        }
+        public bool FindInList(Car car)
+        {
+            if (car == null) return false;
+            var result = Cars.Any(x => x.Equals(car));
+            return result;
+        }
+        public List<Car> FindCarsByManufacturer(Manufacturer manufacturer)
+        {
+            var result =  new List<Car>();
+            foreach (var car in Cars)
+            {
+                foreach(var m in car.Manufacturers)
+                {
+                    if (m.Equals(manufacturer))
+                    {
+                        result.Add(car);
+                        break;
+                    }
+                }
+            }
+            //result = Cars.Where
+            //        (x =>x.Manufacturers.Any(y => y.Equals(manufacturer)))
+            //        .ToList();
+            return result;
+        }
+        public List<Car> FindCarsByManufacturerYear(int year, string action)
+        {
+            var result = new List<Car>();
+            foreach (var car in Cars)
+            {
+                foreach (var m in car.Manufacturers)
+                {
+                    switch (action)
+                    {
+                        case "=":
+                            if (m.Year == year)
+                            {
+                                result.Add(car);
+                                break;
+                            } 
+                        break;
+                        case "<=":
+                            if (m.Year <= year)
+                            {
+                                result.Add(car);
+                                break;
+                            }
+                            break;
+                        case ">=":
+                            if (m.Year >= year)
+                            {
+                                result.Add(car);
+                                break;
+                            }
+                            break;
+                        case "!=":
+                            if (m.Year != year)
+                            {
+                                result.Add(car);
+                                break;
+                            }
+                            break;
+                    } 
+                }
+            }
+            return result;
+        }
     }
 }
