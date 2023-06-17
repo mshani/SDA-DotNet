@@ -8,8 +8,8 @@ namespace Adv07
 {
     internal class Point2D: IMovable
     {
-        public double x { get; private set; }
-        public double y { get; private set; }
+        public double x { get; set; }
+        public double y { get; set; }
 
         public Point2D(double x, double y)
         {

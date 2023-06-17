@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Adv07
 {
-    internal class Circle : IMovable
+    internal class Circle : IMovable, IResize
     {
         Point2D center;
         Point2D point;
@@ -39,6 +40,19 @@ namespace Adv07
         {
             center.Move(moveDirection);
             point.Move(moveDirection);
+        }
+
+        public void Resize(double resizeFactor)
+        {
+            point.x *= resizeFactor;
+            point.y *= resizeFactor;
+        }
+
+        public void PrintPoints()
+        {
+            Console.WriteLine($"center: {center.x},{center.y}");
+            Console.WriteLine($"point: {point.x},{point.y}");
+
         }
     }
 }
