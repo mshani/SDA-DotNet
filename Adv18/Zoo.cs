@@ -42,9 +42,12 @@ namespace Adv18
 
         public void AddAnimals(string animal, int number)
         {
-            for(int i = 1; i <= number; i++)
+            if (number > 0)
             {
-                Animals.Add(animal);
+                for (int i = 1; i <= number; i++)
+                {
+                    Animals.Add(animal);
+                }
             }
         }
     }
