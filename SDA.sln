@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adv05", "WeaponMagazineExam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adv06", "Adv06\Adv06.csproj", "{A0687686-3FCE-474B-B753-5F89085C740B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adv07", "Adv07\Adv07.csproj", "{810CD2F4-77E3-41B3-943F-531624F524B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adv07", "Adv07\Adv07.csproj", "{810CD2F4-77E3-41B3-943F-531624F524B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adv10", "Adv10\Adv10.csproj", "{DAAE812B-5FA2-404B-8BAD-E02E77DEE404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adv10", "Adv10\Adv10.csproj", "{DAAE812B-5FA2-404B-8BAD-E02E77DEE404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adv12", "Adv12\Adv12.csproj", "{0F8B7208-EDAD-4E34-AA86-0C784A50CEEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{DAAE812B-5FA2-404B-8BAD-E02E77DEE404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAAE812B-5FA2-404B-8BAD-E02E77DEE404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAAE812B-5FA2-404B-8BAD-E02E77DEE404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F8B7208-EDAD-4E34-AA86-0C784A50CEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8B7208-EDAD-4E34-AA86-0C784A50CEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8B7208-EDAD-4E34-AA86-0C784A50CEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8B7208-EDAD-4E34-AA86-0C784A50CEEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
