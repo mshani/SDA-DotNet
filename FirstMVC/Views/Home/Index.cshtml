@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<FirstMVC.Models.Person>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,16 @@
     <h1 class="display-4">Hello world</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+@foreach (var item in Model)
+{
+    <div>
+        @item.Name @item.Surname
+        <button type="Button" onclick="location.href='@Url.Action("Details","Home", item)'"
+           class="btn btn-warning"  >View</button>
+        <button type="Button" onclick="location.href='@Url.Action("Edit","Home", item)'"
+            class="btn btn-warning">
+            Edit
+        </button>
+        <hr />
+    </div>
+}

@@ -15,7 +15,11 @@ namespace FirstMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var list = new List<Person>();
+            list.Add(new Person { Name = "John", Surname = "Smith" , Age = 25, Gender = 'M'});
+            list.Add(new Person { Name = "Jane", Surname = "Doe", Age = 21, Gender = 'F' });
+            list.Add(new Person { Name = "Anna", Surname = "Johnson", Age = 24, Gender = 'F' });
+            return View(list);
         }
 
         public IActionResult Privacy()
@@ -26,6 +30,16 @@ namespace FirstMVC.Controllers
         public IActionResult About()
         {
             return View();
+        }
+
+        public IActionResult Details(Person person)
+        {
+            return View(person);
+        }
+
+        public IActionResult Edit(Person person)
+        {
+            return View(person);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
