@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Adv10
+﻿namespace Adv10
 {
     internal class Manufacturer
     {
@@ -19,7 +13,7 @@ namespace Adv10
                 return false;
 
             var other = obj as Manufacturer;
-            if (other.Name.ToLower() == this.Name.ToLower()
+            if (string.Equals(this.Name.Trim(), other.Name.Trim(), StringComparison.OrdinalIgnoreCase)
                 && other.Year == this.Year
                 && other.Country.ToLower() == this.Country.ToLower()) 
             {

@@ -13,13 +13,8 @@ namespace Adv10
         public string Model { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
-        public List<Manufacturer> Manufacturers { get; set; }
+        public List<Manufacturer> Manufacturers { get; set; } = new List<Manufacturer>();
         public EngineTypeEnum EngineType { get; set; }
-
-        public Car()
-        {
-            Manufacturers = new List<Manufacturer>();
-        }
 
         public override bool Equals(object? obj)
         {

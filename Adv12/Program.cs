@@ -1,17 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using static System.Net.Mime.MediaTypeNames;
-
-var numArray = GenerateRandomArray();
+﻿var numArray = GenerateRandomArray();
 var dict = FindDistinctElements(numArray);
 var dublicates = FindDuplicates(dict);
-var notDublicates = FindDuplicates(dict);
+var mostDuplicates = FindMostDublicatedWithSorting(dict);
+
+
 
 int[] GenerateRandomArray()
 {
     var arr = new int[100000];
     for(int i = 0; i< arr.Length; i++)
     {
-        var random = new Random().Next(1, 1000);
+        var random = new Random().Next(1, 100000);
         arr[i] = random;
     }
     return arr;
@@ -69,12 +68,13 @@ List<KeyValuePair<int, int>> FindMostDublicated(Dictionary<int,int> dict)
         //top25.Add(max);
         max = dict.Where(x => !top25.Contains(x)).Max();
         top25.Add(max);
+        counter++;
     }
     return top25;
 }
 List<KeyValuePair<int, int>> FindMostDublicatedWithSorting(Dictionary<int, int> dict)
 {
     var top25 = new List<KeyValuePair<int, int>>();
-    top25 = dict.OrderBy(x => x.Value).Take(25).ToList();
+    top25 = dict.OrderByDescending(x => x.Value).Take(25).ToList();
     return top25;
 }

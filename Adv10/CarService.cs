@@ -59,6 +59,14 @@ namespace Adv10
         }
         public List<Car> FindCarsByEngineType(EngineTypeEnum engineType)
         {
+            //var list = new List<Car>();
+            //foreach (var element in Cars)
+            //{
+            //    if (element.EngineType == engineType)
+            //    {
+            //        list.Add(element);
+            //    }
+            //}
             var result = Cars
                 .Where(x => x.EngineType == engineType)
                 .ToList();
@@ -66,6 +74,14 @@ namespace Adv10
         }
         public List<Car> FindCarsBeforeYear(int year)
         {
+            //var list = new List<Car>();
+            //foreach (var element in Cars)
+            //{
+            //    if (element.Year < year)
+            //    {
+            //        list.Add(element);
+            //    }
+            //}
             var result = Cars
                         .Where(x => x.Year < year)
                         .ToList();
@@ -73,10 +89,21 @@ namespace Adv10
         }
         public Car FindTheMostExpensiveCar()
         {
+            //var car = Cars.FirstOrDefault();
+            //foreach (var element in Cars)
+            //{
+            //    if (car.Price < element.Price)
+            //    {
+            //        car = element;
+            //    }
+            //}
             var price = Cars.Max(x => x.Price);
             var result = Cars
                 .Where(x => x.Price == price)
                 .FirstOrDefault();
+
+            //var result = Cars.OrderByDescending(x => x.Price).FirstOrDefault();
+            //var result = Cars.OrderBy(x => x.Price).LastOrDefault();
             return result;
         }
         public Car FindTheLeastExpensiveCar()
