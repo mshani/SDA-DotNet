@@ -1,6 +1,6 @@
 ﻿using Adv20;
 
-Joiner joiner = new Joiner(", ");
+Joiner joiner = new Joiner("-");
 List<int> ints = new List<int> { 10, 8, 3 };
 Console.WriteLine(joiner.Join(ints));
 
