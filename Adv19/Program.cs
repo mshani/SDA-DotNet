@@ -23,7 +23,8 @@ try
     basket.RemoveFromBasket();//3
     basket.RemoveFromBasket();//2
     basket.RemoveFromBasket();//1
-    //basket.RemoveFromBasket();//Exception
+    basket.RemoveFromBasket();//0
+    basket.RemoveFromBasket();//Exception
 }
 catch (BasketEmptyException ex)
 {

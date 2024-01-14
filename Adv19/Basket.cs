@@ -22,7 +22,7 @@ namespace Adv19
         }
         public void RemoveFromBasket()
         {
-            if (state > 1)
+            if (state > 0)
             {
                 state--;
             }

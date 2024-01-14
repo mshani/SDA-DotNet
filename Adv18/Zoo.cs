@@ -8,10 +8,7 @@ namespace Adv18
 {
     internal class Zoo
     {
-        public List<string> Animals { get; set; }
-        public Zoo() { 
-            Animals= new List<string>();
-        }
+        public List<string> Animals { get; set; } = new List<string>();
 
         public int GetNumberOfAllAnimals()
         {
