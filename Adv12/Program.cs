@@ -1,8 +1,7 @@
 ﻿var numArray = GenerateRandomArray();
 var dict = FindDistinctElements(numArray);
 var dublicates = FindDuplicates(dict);
-var mostDuplicates = FindMostDublicatedWithSorting(dict);
-
+var mostDuplicates = FindMostDublicatedWithSorting(dict, 25);
 
 
 int[] GenerateRandomArray()
@@ -72,9 +71,9 @@ List<KeyValuePair<int, int>> FindMostDublicated(Dictionary<int,int> dict)
     }
     return top25;
 }
-List<KeyValuePair<int, int>> FindMostDublicatedWithSorting(Dictionary<int, int> dict)
+List<KeyValuePair<int, int>> FindMostDublicatedWithSorting(Dictionary<int, int> dict, int take)
 {
     var top25 = new List<KeyValuePair<int, int>>();
-    top25 = dict.OrderByDescending(x => x.Value).Take(25).ToList();
+    top25 = dict.OrderByDescending(x => x.Value).Take(take).ToList();
     return top25;
 }

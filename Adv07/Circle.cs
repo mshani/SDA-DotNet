@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Adv07
 {
-    internal class Circle : IMovable, IResize
+    internal class Circle : IMovable, IResizeble
     {
         Point2D center;
         Point2D point;
@@ -19,14 +19,15 @@ namespace Adv07
 
         public double GetRadius()
         {
-            var radius = Math.Sqrt(Math.Pow(point.x - center.x, 2) + Math.Pow(point.y - center.y, 2));
+            var radius = Math.Sqrt(Math.Pow(point.x - center.x, 2) + 
+                Math.Pow(point.y - center.y, 2));
             return radius;
         }
         public double GetPerimeter()
         {
             var radius = GetRadius();
-            var parameter = 2 * Math.PI * radius;
-            return parameter;
+            var perimeter = 2 * Math.PI * radius;
+            return perimeter;
         }
 
         public double GetArea()
@@ -52,7 +53,6 @@ namespace Adv07
         {
             Console.WriteLine($"center: {center.x},{center.y}");
             Console.WriteLine($"point: {point.x},{point.y}");
-
         }
     }
 }

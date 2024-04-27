@@ -12,7 +12,7 @@ namespace Adv21
         public static List<T> GetEveryNthElement<T>(List<T> list, int index, int skip)
         {
             //[a, b, c, d, e, f, g]
-            //index = 2 and skip = 3
+            //index = 2 and skip = 5
             List<T> result = new List<T>();
             int current = 0;
             foreach (T item in list)

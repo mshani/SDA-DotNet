@@ -25,7 +25,6 @@ namespace Adv05
             var isLoaded = magazine.Count > 0 ? true : false;
             return isLoaded;
         }
-
         public void Shoot(){
             if (magazine.Count > 0){
                 var bullet = magazine.Pop();

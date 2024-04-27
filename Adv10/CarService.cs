@@ -16,13 +16,15 @@ namespace Adv10
         {          
             if (car != null){
                 bool exists = false;
-                //foreach (var element in Cars){
-                //    if (element.Equals(car)){
-                //        exists = true; 
-                //        break;
-                //    }
-                //}
-                exists = Cars.Any(element => element.Equals(car));
+                foreach (var element in Cars)
+                {
+                    if (element.Equals(car))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                //exists = Cars.Any(element => element.Equals(car));
                 if(!exists)
                     Cars.Add(car);
             }
@@ -32,79 +34,77 @@ namespace Adv10
             if (car != null)
             {
                 bool exists = false;
-                //foreach (var element in Cars)
-                //{
-                //    if (element.Equals(car))
-                //    {
-                //        exists = true;
-                //        break;
-                //    }
-                //}
-                exists = Cars.Any(element => element.Equals(car));
+                foreach (var element in Cars)
+                {
+                    if (element.Equals(car))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                //exists = Cars.Any(element => element.Equals(car));
                 if (exists)
                     Cars.Remove(car);
             }
         }
-        public void ListAll(List<Car> cars = null)
+        public void ListAll()
         {
-            var toList = cars;
-            if (cars == null){
-                toList = Cars;
-            }
-
-            foreach (var car in toList)
+            foreach (var car in Cars)
             {
                 Console.WriteLine($"{car.Name} {car.Model} {car.Year} {car.Price}");
             }
         }
         public List<Car> FindCarsByEngineType(EngineTypeEnum engineType)
         {
-            //var list = new List<Car>();
-            //foreach (var element in Cars)
-            //{
-            //    if (element.EngineType == engineType)
-            //    {
-            //        list.Add(element);
-            //    }
-            //}
-            var result = Cars
-                .Where(x => x.EngineType == engineType)
-                .ToList();
-            return result;
+            var list = new List<Car>();
+            foreach (var element in Cars)
+            {
+                if (element.EngineType == engineType)
+                {
+                    list.Add(element);
+                }
+            }
+            //list = Cars
+            //    .Where(x => x.EngineType == engineType)
+            //    .ToList();
+            return list;
         }
         public List<Car> FindCarsBeforeYear(int year)
         {
-            //var list = new List<Car>();
-            //foreach (var element in Cars)
-            //{
-            //    if (element.Year < year)
-            //    {
-            //        list.Add(element);
-            //    }
-            //}
-            var result = Cars
-                        .Where(x => x.Year < year)
-                        .ToList();
-            return result;
+            var list = new List<Car>();
+            foreach (var element in Cars)
+            {
+                if (element.Year < year)
+                {
+                    list.Add(element);
+                }
+            }
+            //list = Cars
+            //        .Where(x => x.Year < year)
+            //        .ToList();
+            return list;
         }
         public Car FindTheMostExpensiveCar()
         {
-            //var car = Cars.FirstOrDefault();
-            //foreach (var element in Cars)
-            //{
-            //    if (car.Price < element.Price)
-            //    {
-            //        car = element;
-            //    }
-            //}
-            var price = Cars.Max(x => x.Price);
-            var result = Cars
-                .Where(x => x.Price == price)
-                .FirstOrDefault();
-
+            var car = Cars.FirstOrDefault();
+            if (car != null)
+            {
+                foreach (var element in Cars)
+                {
+                    if (car.Price < element.Price)
+                    {
+                        car = element;
+                    }
+                }
+            }
+            
+            //var price = Cars.Max(x => x.Price);
+            //car = Cars
+            //    .Where(x => x.Price == price)
+            //    .FirstOrDefault();
             //var result = Cars.OrderByDescending(x => x.Price).FirstOrDefault();
             //var result = Cars.OrderBy(x => x.Price).LastOrDefault();
-            return result;
+            return car;
         }
         public Car FindTheLeastExpensiveCar()
         {
@@ -117,16 +117,17 @@ namespace Adv10
         public List<Car> FindCarsWithAtLeastThreeManufactures()
         {
             var result = new List<Car>();
-            //foreach(var car in Cars)
-            //{
-            //    var manufactures = car.Manufacturers.Count();
-            //    if(manufactures >= 3) {               
-            //        result.Add(car);
-            //    }
-            //}
-            result = Cars
-                .Where(x => x.Manufacturers.Count() >=3)
-                .ToList();
+            foreach (var car in Cars)
+            {
+                var manufactures = car.Manufacturers.Count();
+                if (manufactures >= 3)
+                {
+                    result.Add(car);
+                }
+            }
+            //result = Cars
+            //    .Where(x => x.Manufacturers.Count() >=3)
+            //    .ToList();
             return result;
         }
         public List<Car> OrderListByModel(bool asending)
@@ -145,7 +146,16 @@ namespace Adv10
         public bool FindInList(Car car)
         {
             if (car == null) return false;
-            var result = Cars.Any(x => x.Equals(car));
+            var result = false;
+            foreach (var element in Cars)
+            {
+                if (element.Equals(car))
+                {
+                    result = true;
+                    break;
+                }                
+            }
+           // var result = Cars.Any(x => x.Equals(car));
             return result;
         }
         public List<Car> FindCarsByManufacturer(Manufacturer manufacturer)

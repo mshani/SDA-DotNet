@@ -9,7 +9,6 @@ namespace Adv18
     internal class Zoo
     {
         public List<string> Animals { get; set; } = new List<string>();
-
         public int GetNumberOfAllAnimals()
         {
             return Animals.Count;
@@ -36,7 +35,6 @@ namespace Adv18
                 .ToDictionary(x => x.Key, x => x.Value);
             return result;
         }
-
         public void AddAnimals(string animal, int number)
         {
             if (number > 0)

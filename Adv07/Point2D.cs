@@ -16,7 +16,6 @@ namespace Adv07
             this.x = x;
             this.y = y;
         }
-
         public void Move(MoveDirection moveDirection)
         {
             this.x += moveDirection.x;

@@ -18,7 +18,6 @@ namespace Adv15
             }
             return Base * Height;
         }
-
         public override double CalculatePerimeter()
         {
             if (Base <= 0 || Height <= 0)

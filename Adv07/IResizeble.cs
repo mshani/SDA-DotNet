@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adv07
 {
-    internal interface IResize
+    internal interface IResizeble
     {
         void Resize(double resizeFactor);
     }

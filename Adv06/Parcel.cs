@@ -18,18 +18,22 @@ namespace Adv06
         {
             if (xLength + yLength + zLength > 300)
             {
+                Console.WriteLine("Total sum is greater than 300");
                 return false;
             }
-            if (xLength < 30 && yLength < 30 && zLength < 30)
+            if (xLength < 30 || yLength < 30 || zLength < 30)
             {
+                Console.WriteLine("One of the dimentions is less than 30");
                 return false;
             }
             if (IsExpress && Weight > 15)
             {
+                Console.WriteLine("The parcel is too heavy for express");
                 return false;
             }
             if (!IsExpress && Weight > 30)
             {
+                Console.WriteLine("The parcel is too heavy");
                 return false;
             }
             return true;

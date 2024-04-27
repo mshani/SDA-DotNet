@@ -1,9 +1,8 @@
 ﻿namespace Adv15
 {
-    internal abstract class ThreeDShape : Shape, IFillable
+    internal abstract class Shape3D : Shape, IFillable
     {
         public abstract double CalculateVolume();
-
         public void Fill(double v)
         {
             var volume = CalculateVolume();

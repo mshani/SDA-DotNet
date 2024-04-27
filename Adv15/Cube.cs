@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adv15
 {
-    internal class Cube : ThreeDShape
+    internal class Cube : Shape3D
     {
         public double Base { get; set; }
         public Cube(double b)
