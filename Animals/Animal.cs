@@ -13,11 +13,11 @@ namespace Animals
         public abstract void Speak();
         public abstract void Move();
 
-        public void setName (string name){
+        public void SetName (string name){
             this.name = name;
         }
 
-        public void setWeight(double weight){
+        public void SetWeight(double weight){
             this.weight = weight;
         }
         public override string ToString()
